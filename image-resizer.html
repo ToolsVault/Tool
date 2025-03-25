@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online image resizer tool to resize and optimize images for better performance. Easily resize images to any dimension and compress them for faster loading.">
+  <meta name="keywords" content="image resizer, resize images, optimize images, free image tool, image compressor, online image editor">
+  <meta name="author" content="Your Name">
+  <title>Image Resizer Tool - Free Online Image Resizer and Optimizer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Ubuntu', 'sans-serif';
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color: #b2a5ff;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .ad-space {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .resizer-tool {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border:2px solid #b2a5ff
+    }
+
+    input[type="file"], input[type="number"], select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #b2a5ff;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    .output {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #resized-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    #download-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #b2a5ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+    }
+    ul li {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    ul a{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: black;
+    }
+    .logo i{
+      font-size: 35px;
+      color:rebeccapurple;
+    }
+    a i{
+      color:#b2a5ff;
+    }
+    a p:hover {
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Image Resizer Tool</h1>
+    <p>Resize and optimize your images for better performance.</p>
+  </header>
+
+  <main>
+    <section class="resizer-tool" aria-label="Image Resizer Tool">
+      <input type="file" id="image-input" accept="image/*" aria-label="Upload Image">
+      <label for="width">Width (in pixels):</label>
+      <input type="number" id="width" placeholder="Enter width" min="1" aria-label="Image Width">
+      <label for="height">Height (in pixels):</label>
+      <input type="number" id="height" placeholder="Enter height" min="1" aria-label="Image Height">
+      <label for="compression-level">Compression Level:</label>
+      <select id="compression-level" aria-label="Compression Level">
+        <option value="0.1">Low (10%)</option>
+        <option value="0.5" selected>Medium (50%)</option>
+        <option value="0.9">High (90%)</option>
+      </select>
+      <button id="resize-btn" aria-label="Resize Image">Resize Image</button>
+      <div class="output">
+        <img id="resized-image" alt="Resized Image">
+        <a id="download-link" download="resized-image.jpg">Download Resized Image</a>
+      </div>
+    </section>
+
+    <!-- Ad Space 2 -->
+    <div class="ad-space">
+      <!-- Replace YOUR_AD_UNIT_ID with your Google AdSense Ad Unit ID -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+           data-ad-slot="0987654321"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main><hr>
+
+  <footer>
+    <ul>
+      <li class="logo">
+          <i class="fas fa-tools" aria-hidden="true"></i> 
+          <h1>ToolVault</h1>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-toolbox"></i>
+          <p>All Tools</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-address-card"></i>
+          <p>About</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-lock"></i>
+          <p>Privacy Policy</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-list-check"></i>
+        <p>Terms & Condition</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-envelope"></i>
+          <p>Contact Us</p>
+        </a>
+      </li>
+      <li>
+        <p>&copy; 2025 ToolVault. All rights reserved.</p>
+      </li>
+    </ul>
+  </footer>
+
+  <script>
+    document.getElementById('resize-btn').addEventListener('click', function () {
+      const fileInput = document.getElementById('image-input');
+      const width = parseInt(document.getElementById('width').value);
+      const height = parseInt(document.getElementById('height').value);
+      const compressionLevel = parseFloat(document.getElementById('compression-level').value);
+      const outputImage = document.getElementById('resized-image');
+      const downloadLink = document.getElementById('download-link');
+
+      if (fileInput.files.length === 0 || isNaN(width) || isNaN(height) || width <= 0 || height <= 0) {
+        alert('Please select an image and enter valid width and height.');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = function () {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Set canvas dimensions to the desired width and height
+          canvas.width = width;
+          canvas.height = height;
+
+          // Draw image on canvas with the new dimensions
+          ctx.drawImage(img, 0, 0, width, height);
+
+          // Compress image based on the selected compression level
+          canvas.toBlob(
+            function (blob) {
+              const resizedUrl = URL.createObjectURL(blob);
+              outputImage.src = resizedUrl;
+              downloadLink.href = resizedUrl;
+              downloadLink.style.display = 'block';
+            },
+            'image/jpeg',
+            compressionLevel
+          );
+        };
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

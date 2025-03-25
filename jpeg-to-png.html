@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert JPEG images to PNG format quickly and easily with our free online tool. Fully responsive and SEO-optimized.">
+    <meta name="keywords" content="JPEG to PNG, image converter, free image converter, online tool, SEO-optimized">
+    <meta name="author" content="Your Name">
+    <title>JPEG to PNG Converter - Free Online Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Ubuntu', 'sans-serif';
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #b2a5ff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .converter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid #b2a5ff;
+        }
+
+        input[type="file"] {
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #b2a5ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        ul li {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+           
+        }
+        ul a{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: black;
+
+        }
+        .logo i{
+            font-size: 35px;
+            color:rebeccapurple;
+        }
+        a i{
+            color: #b2a5ff;
+
+        }
+        a p:hover {
+        color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JPEG to PNG Converter</h1>
+        <p>Convert your JPEG images to PNG format quickly and easily.</p>
+    </header>
+
+    <main>
+        <!-- Converter Tool -->
+        <div class="converter-container">
+            <input type="file" id="fileInput" accept="image/jpeg" />
+            <button id="convertBtn">Convert to PNG</button>
+            <a id="downloadLink" style="display:none;">Download PNG</a>
+            <canvas id="canvas" style="display:none;"></canvas>
+        </div>
+
+        <!-- AdSense Ad Unit -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_AD_UNIT_ID" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="YOUR_ADSENSE_AD_UNIT_ID"
+                 data-ad-slot="0987654321"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main><hr>
+
+    <footer>
+        <ul>
+            <li class="logo">
+                <i class="fas fa-tools" aria-hidden="true"></i> 
+                <h1>ToolVault</h1>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-toolbox"></i>
+                <p>All Tools</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-address-card"></i>
+                <p>About</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-lock"></i>
+                <p>Privacy Policy</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-list-check"></i>
+              <p>Terms & Condition</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Contact Us</p>
+              </a>
+            </li>
+            <li>
+              <p>&copy; 2025 ToolVault. All rights reserved.</p>
+            </li>
+          </ul>
+    </footer>
+
+    <script>
+        // JavaScript for JPEG to PNG Conversion
+        document.getElementById('convertBtn').addEventListener('click', function () {
+            const fileInput = document.getElementById('fileInput');
+            const canvas = document.getElementById('canvas');
+            const downloadLink = document.getElementById('downloadLink');
+
+            if (fileInput.files.length === 0) {
+                alert('Please select a JPEG file.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const img = new Image();
+                img.src = event.target.result;
+
+                img.onload = function () {
+                    canvas.width = img.width;
+                    canvas.height = img.height;
+
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0);
+
+                    // Convert to PNG
+                    const pngUrl = canvas.toDataURL('image/png');
+                    downloadLink.href = pngUrl;
+                    downloadLink.download = 'converted_image.png';
+                    downloadLink.style.display = 'inline-block';
+                };
+            };
+
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+</html>

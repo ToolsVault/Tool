@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fully responsive image background remover tool with SEO optimization and ad integration.">
+    <meta name="keywords" content="background remover, image editing, SEO, AdSense, monetization">
+    <meta name="author" content="Your Name">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Image Background Remover Tool</title>
+    <style>
+        /* CSS Styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'ubuntu', 'sans-serif';
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #b2a5ff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        #upload-section {
+            margin-bottom: 30px;
+        }
+
+        #upload-section input[type="file"] {
+            display: none;
+        }
+
+        #upload-section label {
+            background-color: #b2a5ff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        #remove-background {
+            background-color: #b2a5ff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 20px;
+        }
+        #image-container {
+            margin: 20px auto;
+            max-width: 100%;
+            height: auto;
+            border: 2px dashed #ccc;
+            padding: 20px;
+            background-color: #fff;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #background-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff; /* Default background color */
+            z-index: 1;
+            border-radius: 10px;
+        }
+
+        #processed-image {
+            max-width: 100%;
+            height: auto;
+            display: none;
+            border-radius: 10px;
+            position: relative;
+            z-index: 2;
+        }
+
+        #color-picker-section {
+            margin-top: 20px;
+        }
+
+        #color-picker {
+            margin-left: 10px;
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+
+        #download-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #b2a5ff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #download-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        #ad-section {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .ad-unit {
+            margin: 10px auto;
+            width: 300px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        ul li {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    ul a{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: black;
+    }
+    .logo i{
+      font-size: 35px;
+      color:rebeccapurple;
+    }
+    a i{
+      color:#b2a5ff;
+    }
+    a p:hover {
+      color: blueviolet;
+    }
+       
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .ad-unit {
+                width: 100%;
+                height: 100px;
+            }
+
+            #upload-section label, #remove-background {
+                width: 100%;
+                margin: 10px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #processed-image {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- HTML Structure -->
+    <header>
+        <h1>Background Remover Tool</h1>
+        <p>Our free background remover tool delivers professional-quality, fast, and accurate results.</p>
+    </header>
+    <main>
+        <!-- Upload Section -->
+        <section id="upload-section">
+            <label for="image-upload">Upload Image</label>
+            <input type="file" id="image-upload" accept="image/*" />
+            <button id="remove-background">Remove Background</button>
+        </section>
+
+        <!-- Image Display Section -->
+        <section id="image-container">
+            <div id="background-layer"></div>
+            <img id="processed-image" alt="Processed Image" />
+        </section>
+
+        <!-- Background Color Picker -->
+        <section id="color-picker-section">
+            <label for="color-picker">Change Background Color:</label>
+            <input type="color" id="color-picker" value="#ffffff" />
+        </section>
+
+        <!-- Download Button -->
+        <button id="download-button" disabled>Download Image</button>
+
+        <!-- Ad Section -->
+        <section id="ad-section">
+            <div id="ad-bottom" class="ad-unit">
+                Ad Space (Bottom)
+            </div>
+        </section>
+    </main><hr>
+    <footer>
+        <ul>
+            <li class="logo">
+                <i class="fas fa-tools" aria-hidden="true"></i> 
+                <h1>ToolVault</h1>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-toolbox"></i>
+                <p>All Tools</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-address-card"></i>
+                <p>About</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-lock"></i>
+                <p>Privacy Policy</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-list-check"></i>
+              <p>Terms & Condition</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Contact Us</p>
+              </a>
+            </li>
+            <li>
+              <p>&copy; 2025 ToolVault. All rights reserved.</p>
+            </li>
+          </ul>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // API Integration (Remove.bg or similar)
+        const apiKey = 'Utt4XK6XeGMfmekCNsZBECZD'; // Replace with your API key
+        const apiUrl = 'https://api.remove.bg/v1.0/removebg';
+
+        // DOM Elements
+        const imageUpload = document.getElementById('image-upload');
+        const removeBackgroundBtn = document.getElementById('remove-background');
+        const processedImage = document.getElementById('processed-image');
+        const colorPicker = document.getElementById('color-picker');
+        const backgroundLayer = document.getElementById('background-layer');
+        const downloadButton = document.getElementById('download-button');
+
+        let processedImageUrl = null; // Store the processed image URL
+
+        // Event Listener for Background Removal
+        removeBackgroundBtn.addEventListener('click', async () => {
+            const file = imageUpload.files[0];
+            if (!file) {
+                alert('Please upload an image first.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('image_file', file);
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'X-Api-Key': apiKey,
+                    },
+                    body: formData,
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to remove background.');
+                }
+
+                const blob = await response.blob();
+                processedImageUrl = URL.createObjectURL(blob);
+                processedImage.src = processedImageUrl;
+                processedImage.style.display = 'block';
+                downloadButton.disabled = false; // Enable download button
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while removing the background.');
+            }
+        });
+
+        // Event Listener for Background Color Change
+        colorPicker.addEventListener('input', () => {
+            const selectedColor = colorPicker.value;
+            backgroundLayer.style.backgroundColor = selectedColor;
+        });
+
+        // Event Listener for Download Button
+        downloadButton.addEventListener('click', () => {
+            if (!processedImageUrl) {
+                alert('No processed image available to download.');
+                return;
+            }
+
+            // Create a temporary anchor element to trigger the download
+            const link = document.createElement('a');
+            link.href = processedImageUrl;
+            link.download = 'processed-image.png'; // Default filename
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+
+        // Google AdSense Integration
+        (adsbygoogle = window.adsbygoogle || []).push({
+            google_ad_client: "ca-pub-YOUR_AD_SENSE_ID", // Replace with your AdSense ID
+            enable_page_level_ads: true
+        });
+    </script>
+    <!-- Google AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID" crossorigin="anonymous"></script>
+</body>
+</html>

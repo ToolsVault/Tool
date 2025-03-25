@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ToolVault is your one-stop solution for image and PDF editing tools. Resize, compress, convert, and edit files with ease.">
+  <meta name="keywords" content="image tools, PDF tools, image resizer, PDF compressor, image converter, PDF merger,remove bg">
+  <meta name="author" content="ToolVault">
+  <meta property="og:title" content="ToolVault - Image and PDF Tools">
+  <meta property="og:description" content="ToolVault offers a wide range of tools for image and PDF editing. Simplify your workflow with our user-friendly tools.">
+  <meta property="og:image" content="https://via.placeholder.com/1200x630">
+  <meta property="og:url" content="https://www.toolvault.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>ToolVault - Image and PDF Tools</title>
+ 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'ubuntu', 'sans-serif';
+    }
+
+    body {
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background-color: #b2a5ff;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    nav .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    nav .logo img {
+      width: 40px;
+      margin-right: 10px;
+    }
+
+    nav .logo h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .logo{
+      display: flex;
+      gap: 10px;
+      font-size: 36px;
+      color:rebeccapurple
+    }
+
+    nav .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+
+    nav .nav-links .dropdown {
+      position: relative;
+    }
+
+    nav .nav-links .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      padding: 10px;
+      top: 100%;
+      left: 0;
+      z-index: 1;
+    }
+
+    nav .nav-links .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    nav .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      padding: 5px 10px;
+      transition: color 0.3s ease;
+    }
+
+    nav .nav-links a:hover {
+      color: #dad2ff;
+    }
+
+    nav .nav-links .dropdown-content a {
+      color: #333;
+      display: block;
+      padding: 8px 12px;
+    }
+
+    nav .nav-links .dropdown-content a:hover {
+      background-color: #f5f5f5;
+    }
+
+    /* Description Section */
+    .description {
+      text-align: center;
+      padding: 40px 10%;
+      background-color: #fff;
+      margin: 20px 10%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .description h2 {
+      font-size: 28px;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .description p {
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .explore {
+      margin-top: 21px;
+      font-size: 29px;
+      font-weight: 500;
+      color: #b2a5ff;
+      text-align: center;
+    }
+
+    /* Tool Cards Section */
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 40px 10%;
+    }
+
+    .tool-card {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .tool-card a {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      color: #333;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .tool-card i {
+      font-size: 40px;
+      color: #b2a5ff;
+      margin-bottom: 15px;
+    }
+
+    .tool-card h3 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .tool-card p {
+      font-size: 14px;
+      color: #666;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        padding: 20px 5%;
+      }
+
+      nav .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .description {
+        margin: 20px 5%;
+        padding: 20px 5%;
+      }
+
+      .tools {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        padding: 20px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav .logo h1 {
+        font-size: 20px;
+      }
+
+      .description h2 {
+        font-size: 24px;
+      }
+
+      .description p {
+        font-size: 14px;
+      }
+
+      .tool-card h3 {
+        font-size: 16px;
+      }
+
+      .tool-card p {
+        font-size: 12px;
+      }
+    }
+    footer {
+      margin-top: 35px;
+      text-align: center;
+      font-size: 15px;
+      color: black;
+      position:static;
+      bottom: 0;
+      width: 100%;
+    }
+    footer a{
+      color: black;
+      text-decoration: none;
+    }
+    footer a:hover{
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="logo">
+      <i class="fas fa-tools" aria-hidden="true"></i> 
+      <h1>ToolVault</h1>
+    </div>
+    <div class="nav-links">
+      <div class="dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">Image Tools</a>
+        <div class="dropdown-content" aria-label="Image Tools Submenu">
+          <a href="/ToolVault/image-resizer.html">Image Resizer</a>
+          <a href="/Tool/image-compressor.html">Image Compressor</a>
+          <a href="/Tool/png-to-jpeg.html">PNG to JPEG</a>
+          <a href="/Tool/jpeg-to-png.html">JPEG to PNG</a>
+          <a href="/Tool/remove-bg.html">Remove bg</a>
+          <a href="/Tool/watermark.html">Image Watermark</a>
+          <a href="/Tool/pdf-to-jpeg-converter.html">PDF to JPEG</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="#" aria-haspopup="true" aria-expanded="false">PDF Tools</a>
+        <div class="dropdown-content" aria-label="PDF Tools Submenu">
+          <a href="/Tool/pdf-merger.html">PDF Merger</a>
+          <a href="/Tool/pdf-watermark.html">Watermark PDF </a>
+          <a href="#">JPEG to PDF </a>
+          
+        </div>
+      </div>
+      <div>
+        <a href="mailto:contact2toolvault@gmail.com?subject=Query from Website&body=Hello, I have a question..." class="contact-button">Contact Us</a>
+      </div>
+      <div>
+        <a href="#">About</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Description Section -->
+  <section class="description">
+    <h2>Welcome to ToolVault</h2>
+    <p>
+      ToolVault is your one-stop solution for all your image and PDF editing needs. Whether you're looking to resize images, compress PDFs, or convert files, our tools are designed to make your tasks easier and faster. With a user-friendly interface and powerful features, ToolVault is here to simplify your workflow.
+    </p>
+  </section>
+  <p class="explore">Explore Our Tools</p>
+
+  <!-- Tool Cards Section -->
+  <section class="tools">
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-wrench" aria-hidden="true"></i>
+        <h3>Image Resizer</h3>
+        <p>Resize images quickly and efficiently.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-hammer" aria-hidden="true"></i>
+        <h3>Image Compressor</h3>
+        <p>Compress images without losing quality.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-screwdriver" aria-hidden="true"></i>
+        <h3>Image Converter</h3>
+        <p>Convert images to different formats.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-toolbox" aria-hidden="true"></i>
+        <h3>PDF Merger</h3>
+        <p>Merge multiple PDFs into one.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-ruler-combined" aria-hidden="true"></i>
+        <h3>PDF Splitter</h3>
+        <p>Split PDFs into individual pages.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-tape" aria-hidden="true"></i>
+        <h3>PDF Compressor</h3>
+        <p>Compress PDFs to reduce file size.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-balance-scale" aria-hidden="true"></i>
+        <h3>PDF Editor</h3>
+        <p>Edit and annotate PDFs easily.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-paint-brush" aria-hidden="true"></i>
+        <h3>PDF Watermark</h3>
+        <p>Add watermarks to your PDFs.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-plug" aria-hidden="true"></i>
+        <h3>Text Extractor</h3>
+        <p>Extract text from PDFs.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-bolt" aria-hidden="true"></i>
+        <h3>PDF to Word</h3>
+        <p>Convert PDFs to Word documents.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-cogs" aria-hidden="true"></i>
+        <h3>PDF to Excel</h3>
+        <p>Convert PDFs to Excel sheets.</p>
+      </a>
+    </div>
+    <!-- New Tool Cards -->
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-file-pdf" aria-hidden="true"></i>
+        <h3>PDF to JPG</h3>
+        <p>Convert PDF pages to JPG images.</p>
+      </a>
+    </div>
+    <div class="tool-card">
+      <a href="#">
+        <i class="fas fa-file-image" aria-hidden="true"></i>
+        <h3>JPG to PDF</h3>
+        <p>Convert JPG images to PDF files.</p>
+      </a>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 ToolVault. All rights reserved. | 
+        <a href="#" target="_blank">Privacy Policy</a> | 
+        <a href="#" target="_blank">Terms of Service</a> | <a href="#">License</a> 
+  </footer>
+</body>
+</html>

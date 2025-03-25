@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Convert multiple JPEG images to a single PDF file online for free. Fully responsive and easy to use.">
+    <meta name="keywords" content="JPEG to PDF, image to PDF, PDF converter, online PDF tools">
+    <meta name="author" content="Your Name">
+    <title>JPEG to PDF Converter - Free Online Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Ubuntu', 'sans-serif';
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+        .container {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid #b2a5ff;
+            margin-top: 20px;
+        }
+        header {
+            background-color: #b2a5ff;
+            color: #fff;
+            padding: 20px 0; 
+            text-align: center;
+            width: 100%;
+            margin: 0; 
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        .file-input-label {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #b2a5ff;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+        .add-image-btn {
+            padding: 12px;
+            background: #b2a5ff;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background 0.3s ease;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px; /* Space between the buttons */
+        }
+        .button-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        #preview {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        #preview img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }   
+        .ad-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+           
+        }
+
+        ul li {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        }
+        ul a{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: black;
+        }
+        .logo i{
+        font-size: 35px;
+        color:rebeccapurple;
+        }
+        a i{
+        color:#b2a5ff;
+        }
+        a p:hover {
+        color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>JPEG To PDF Converter</h1>
+        <p>Convert or merge your different JPEG images to a single PDF file</p>
+    </header>
+    <main>
+        <div class="container">
+            <!-- File Input and Add Image Button -->
+            <div class="button-group">
+                <label for="bulkImageInput" class="file-input-label">Select Images</label>
+                <button class="add-image-btn" id="addImageBtn">+</button>
+            </div>
+            <input type="file" id="bulkImageInput" accept="image/jpeg" multiple>
+
+            <!-- Convert to PDF Button -->
+            <button id="convertBtn" class="file-input-label">Convert to PDF</button>
+
+            <!-- Image Preview Section -->
+            <div id="preview">Preview</div>
+        </div>
+        <!-- Ad Container -->
+        <div class="ad-container">
+            <!-- Google AdSense Ad Unit -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+                data-ad-slot="1234567890"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </main>
+
+    <footer>
+        <ul>
+            <li class="logo">
+                <i class="fas fa-tools" aria-hidden="true"></i> 
+                <h1>ToolVault</h1>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-toolbox"></i>
+                <p>All Tools</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-address-card"></i>
+                <p>About</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-lock"></i>
+                <p>Privacy Policy</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-list-check"></i>
+              <p>Terms & Condition</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Contact Us</p>
+              </a>
+            </li>
+            <li>
+              <p>&copy; 2025 ToolVault. All rights reserved.</p>
+            </li>
+          </ul>
+    </footer>
+
+    <!-- Load jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script>
+        // Initialize jsPDF
+        window.jsPDF = window.jspdf.jsPDF;
+
+        // Array to store all uploaded images
+        let images = [];
+
+        // Add images when the "plus" button is clicked
+        document.getElementById('addImageBtn').addEventListener('click', function () {
+            document.getElementById('bulkImageInput').click();
+        });
+
+        // Handle file selection
+        document.getElementById('bulkImageInput').addEventListener('change', function () {
+            if (this.files.length > 0) {
+                images = images.concat(Array.from(this.files));
+                updatePreview();
+            }
+        });
+
+        // Convert images to PDF
+        document.getElementById('convertBtn').addEventListener('click', async function () {
+            if (images.length === 0) {
+                alert('Please add at least one JPEG image.');
+                return;
+            }
+
+            const pdf = new jsPDF();
+
+            for (let i = 0; i < images.length; i++) {
+                const image = images[i];
+                const reader = new FileReader();
+
+                // Convert image to data URL
+                const imageData = await new Promise((resolve) => {
+                    reader.onload = () => resolve(reader.result);
+                    reader.readAsDataURL(image);
+                });
+
+                // Add image to PDF
+                const img = new Image();
+                img.src = imageData;
+
+                await new Promise((resolve) => {
+                    img.onload = () => {
+                        const pdfWidth = pdf.internal.pageSize.getWidth();
+                        const pdfHeight = pdf.internal.pageSize.getHeight();
+                        const imgRatio = img.width / img.height;
+                        const pdfRatio = pdfWidth / pdfHeight;
+
+                        let imgWidth, imgHeight;
+
+                        // Adjust image dimensions to fit the PDF page
+                        if (imgRatio > pdfRatio) {
+                            imgWidth = pdfWidth;
+                            imgHeight = imgWidth / imgRatio;
+                        } else {
+                            imgHeight = pdfHeight;
+                            imgWidth = imgHeight * imgRatio;
+                        }
+
+                        // Center the image on the page
+                        const x = (pdfWidth - imgWidth) / 2;
+                        const y = (pdfHeight - imgHeight) / 2;
+
+                        if (i !== 0) pdf.addPage(); // Add a new page for each image after the first
+                        pdf.addImage(img, 'JPEG', x, y, imgWidth, imgHeight);
+                        resolve();
+                    };
+                });
+            }
+
+            // Save the PDF
+            pdf.save('converted_images.pdf');
+        });
+
+        // Update the image preview section
+        function updatePreview() {
+            const preview = document.getElementById('preview');
+            preview.innerHTML = '';
+            images.forEach((image, index) => {
+                const img = document.createElement('img');
+                img.src = URL.createObjectURL(image);
+                img.alt = `Image ${index + 1}`;
+                preview.appendChild(img);
+            });
+        }
+    </script>
+</body>
+</html>

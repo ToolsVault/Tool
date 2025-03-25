@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online tool to convert PDF pages to high-quality JPEG images. Extract images from PDF files quickly without any software installation.">
+    <meta name="keywords" content="PDF to JPEG, PDF to image, convert PDF to JPG, extract images from PDF, online PDF converter, free PDF tool">
+    <meta name="author" content="ToolVault">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourwebsite.com/pdf-to-jpeg" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Free PDF to JPEG Converter | ToolVault">
+    <meta property="og:description" content="Convert PDF pages to JPEG images online for free. No registration required.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com/pdf-to-jpeg">
+    <meta property="og:image" content="https://yourwebsite.com/images/pdf-to-jpeg-preview.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Free PDF to JPEG Converter | ToolVault">
+    <meta name="twitter:description" content="Convert PDF pages to JPEG images online for free. No registration required.">
+    <meta name="twitter:image" content="https://yourwebsite.com/images/pdf-to-jpeg-preview.jpg">
+    
+    <title>Free PDF to JPEG Converter Online | Extract Images from PDF - ToolVault</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Ubuntu', 'sans-serif';
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #b2a5ff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            margin: 5px 0 0;
+            font-size: 1.2rem;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 800px;
+            width: 80%;
+            text-align: center;
+            border: 2px solid #b2a5ff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        /* Upload Section */
+        #upload-section {
+            margin-bottom: 30px;
+        }
+
+        .file-input-wrapper input[type="file"] {
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        #convert-btn {
+            padding: 12px 24px;
+            background: #b2a5ff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        #convert-btn:hover {
+            background: #9a8cff;
+        }
+
+        /* Image Gallery */
+        #image-gallery {
+            margin-top: 20px;
+        }
+
+        #images-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #images-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #images-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background: #b2a5ff;
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        /* Ad Container */
+        .ad-container {
+            width: 100%;
+            max-width: 728px;
+            margin: 0 auto 30px;
+            padding: 15px;
+            background: #f5f5f5;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .ad-placeholder {
+            width: 100%;
+            height: 90px;
+            background: #e9e9e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 14px;
+            border-radius: 4px;
+        }
+
+        ul li {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+        ul a{
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: black;
+        }
+        .logo i{
+            font-size: 35px;
+            color:rebeccapurple;
+        }
+        a i{
+            color:#b2a5ff;
+        }
+        a p:hover {
+            color: blueviolet;
+        }
+        
+        /* Schema.org structured data */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>PDF to JPEG Converter</h1>
+        <p>Extract images from PDF files easily and quickly.</p>
+    </header>
+
+    <div class="main-content">
+        <div class="container">
+            <div id="upload-section">
+                <div class="file-input-wrapper">
+                    <input type="file" id="pdf-file" accept="application/pdf">
+                </div>
+                <button id="convert-btn">Convert to JPEG</button>
+            </div>
+            <div id="image-gallery">
+                <h2>Extracted Images</h2>
+                <div id="images-container"></div>
+            </div>
+        </div>
+        
+        <!-- Ad Container -->
+        <div class="ad-container">
+            <div class="ad-placeholder">
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <ul>
+            <li class="logo">
+                <i class="fas fa-tools" aria-hidden="true"></i> 
+                <h1>ToolVault</h1>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-house"></i>
+                <p>Home</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-address-card"></i>
+                <p>About</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-lock"></i>
+                <p>Privacy Policy</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-list-check"></i>
+              <p>Terms & Condition</p>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <i class="fa-solid fa-envelope"></i>
+                <p>Contact Us</p>
+              </a>
+            </li>
+            <li>
+              <p>&copy; 2025 ToolVault. All rights reserved.</p>
+            </li>
+          </ul>
+    </footer>
+
+    <!-- JSON-LD structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PDF to JPEG Converter",
+      "url": "https://yourwebsite.com/pdf-to-jpeg",
+      "description": "Free online tool to convert PDF pages to high-quality JPEG images without any software installation.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "creator": {
+        "@type": "Organization",
+        "name": "ToolVault"
+      }
+    }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script>
+        document.getElementById('convert-btn').addEventListener('click', async function() {
+            const fileInput = document.getElementById('pdf-file');
+            if (fileInput.files.length === 0) {
+                alert('Please select a PDF file.');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            const fileReader = new FileReader();
+
+            fileReader.onload = async function(event) {
+                const typedArray = new Uint8Array(event.target.result);
+                const pdf = await pdfjsLib.getDocument(typedArray).promise;
+                const imagesContainer = document.getElementById('images-container');
+                imagesContainer.innerHTML = ''; // Clear previous images
+
+                for (let i = 1; i <= pdf.numPages; i++) {
+                    const page = await pdf.getPage(i);
+                    const viewport = page.getViewport({ scale: 1.5 });
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.height = viewport.height;
+                    canvas.width = viewport.width;
+
+                    await page.render({
+                        canvasContext: context,
+                        viewport: viewport
+                    }).promise;
+
+                    // Convert canvas to JPEG image
+                    const imageUrl = canvas.toDataURL('image/jpeg');
+                    const imgElement = document.createElement('img');
+                    imgElement.src = imageUrl;
+                    imgElement.alt = `Page ${i} of converted PDF`;
+
+                    // Create download button
+                    const downloadBtn = document.createElement('button');
+                    downloadBtn.innerText = 'Download';
+                    downloadBtn.classList.add('download-btn');
+                    downloadBtn.addEventListener('click', function() {
+                        const link = document.createElement('a');
+                        link.href = imageUrl;
+                        link.download = `page-${i}.jpg`;
+                        link.click();
+                        
+                        // Track download event (for analytics)
+                        console.log('Downloaded page', i);
+                    });
+
+                    // Wrap image and button in a div
+                    const imageWrapper = document.createElement('div');
+                    imageWrapper.classList.add('image-wrapper');
+                    imageWrapper.appendChild(imgElement);
+                    imageWrapper.appendChild(downloadBtn);
+
+                    imagesContainer.appendChild(imageWrapper);
+                }
+            };
+
+            fileReader.readAsArrayBuffer(file);
+        });
+    </script>
+</body>
+</html>

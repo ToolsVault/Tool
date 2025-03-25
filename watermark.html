@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online tool to add text or image watermarks to your images. Watermarks are tilted at 45 degrees for a professional look.">
+  <meta name="keywords" content="watermark tool, add watermark, image watermark, text watermark, free tool, SEO optimized">
+  <meta name="author" content="Your Name">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>Watermark Inserter Tool - Add Text or Image Watermarks</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'ubuntu','sans-serif';
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #b2a5ff;
+      width: 100%;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.1rem;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .ad-space {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .watermark-tool {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid #b2a5ff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .watermark-tool label {
+      display: block;
+      margin: 15px 0 5px;
+      font-weight: 600;
+      color: #555;
+    }
+
+    .watermark-tool input[type="file"],
+    .watermark-tool input[type="text"],
+    .watermark-tool input[type="color"],
+    .watermark-tool input[type="number"],
+    .watermark-tool select,
+    .watermark-tool button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .watermark-tool input[type="file"] {
+      background-color: #f9f9f9;
+    }
+
+    .watermark-tool input[type="color"] {
+      padding: 5px;
+      height: 50px;
+      cursor: pointer;
+    }
+
+    .watermark-tool select {
+      background-color: #f9f9f9;
+      cursor: pointer;
+    }
+
+    .watermark-tool button {
+      background-color: #b2a5ff;
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      border-radius: 20px;
+    }
+    .output {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+    #output-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #download-link {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background-color: #b2a5ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 23px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    ul li {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    ul a{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: black;
+    }
+    .logo i{
+      font-size: 35px;
+      color:rebeccapurple;
+    }
+    a i{
+      color:#b2a5ff;
+    }
+    a p:hover {
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Insert Watermark</h1>
+    <p>Add text or image watermarks to your images easily. Watermarks are tilted at 45 degrees.</p>
+  </header>
+
+  <main>
+    <section class="watermark-tool">
+      <label for="file-input">Upload Image:</label>
+      <input type="file" id="file-input" accept="image/*">
+
+      <div>
+        <button id="add-text-btn">Add Text Watermark</button>
+        <button id="add-image-btn">Add Image Watermark</button>
+      </div>
+
+      <!-- Text Watermark Options -->
+      <div id="text-options" style="display: none;">
+        <label for="watermark-text">Watermark Text:</label>
+        <input type="text" id="watermark-text" placeholder="Enter watermark text">
+        <label for="text-color">Text Color:</label>
+        <input type="color" id="text-color" value="#000000">
+        <label for="text-size">Text Size:</label>
+        <input type="number" id="text-size" placeholder="Enter text size" value="30">
+        <label for="text-opacity">Text Opacity:</label>
+        <input type="number" id="text-opacity" placeholder="Enter opacity (0.1 to 1)" value="0.5" step="0.1" min="0.1" max="1">
+      </div>
+
+      <!-- Image Watermark Options -->
+      <div id="image-options" style="display: none;">
+        <label for="watermark-image">Upload Watermark Image:</label>
+        <input type="file" id="watermark-image" accept="image/*">
+        <label for="image-opacity">Image Opacity:</label>
+        <input type="number" id="image-opacity" placeholder="Enter opacity (0.1 to 1)" value="0.5" step="0.1" min="0.1" max="1">
+      </div>
+
+      <button id="process-btn">Apply Watermark</button>
+
+      <div class="output">
+        <img id="output-image" alt="Watermarked Image">
+        <a id="download-link" download="watermarked-image.png">Download Watermarked Image</a>
+      </div>
+    </section>
+
+    <!-- Ad Space 2 -->
+    <div class="ad-space">
+      <!-- Replace with your Google AdSense Ad Unit ID -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+           data-ad-slot="0987654321"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main><hr>
+
+  <footer>
+    <ul>
+      <li class="logo">
+          <i class="fas fa-tools" aria-hidden="true"></i> 
+          <h1>ToolVault</h1>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-toolbox"></i>
+          <p>All Tools</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-address-card"></i>
+          <p>About</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-lock"></i>
+          <p>Privacy Policy</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-list-check"></i>
+        <p>Terms & Condition</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-envelope"></i>
+          <p>Contact Us</p>
+        </a>
+      </li>
+      <li>
+        <p>&copy; 2025 ToolVault. All rights reserved.</p>
+      </li>
+    </ul>
+  </footer>
+
+  <script>
+    const fileInput = document.getElementById('file-input');
+    const addTextBtn = document.getElementById('add-text-btn');
+    const addImageBtn = document.getElementById('add-image-btn');
+    const textOptions = document.getElementById('text-options');
+    const imageOptions = document.getElementById('image-options');
+    const processBtn = document.getElementById('process-btn');
+    const outputImage = document.getElementById('output-image');
+    const downloadLink = document.getElementById('download-link');
+
+    let watermarkType = null; // 'text' or 'image'
+
+    addTextBtn.addEventListener('click', () => {
+      watermarkType = 'text';
+      textOptions.style.display = 'block';
+      imageOptions.style.display = 'none';
+    });
+
+    addImageBtn.addEventListener('click', () => {
+      watermarkType = 'image';
+      textOptions.style.display = 'none';
+      imageOptions.style.display = 'block';
+    });
+
+    processBtn.addEventListener('click', () => {
+      if (fileInput.files.length === 0) {
+        alert('Please select an image to process.');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = function () {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Set canvas dimensions to the image dimensions
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          // Draw the image on the canvas
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          if (watermarkType === 'text') {
+            const text = document.getElementById('watermark-text').value;
+            const color = document.getElementById('text-color').value;
+            const size = parseInt(document.getElementById('text-size').value);
+            const opacity = parseFloat(document.getElementById('text-opacity').value);
+
+            ctx.font = `${size}px Arial`;
+            ctx.fillStyle = color;
+            ctx.globalAlpha = opacity;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            // Rotate the text by 45 degrees
+            ctx.translate(canvas.width / 2, canvas.height / 2);
+            ctx.rotate((-45 * Math.PI) / 180);
+            ctx.fillText(text, 0, 0);
+            ctx.resetTransform(); // Reset transformations
+          } else if (watermarkType === 'image') {
+            const watermarkFile = document.getElementById('watermark-image').files[0];
+            if (!watermarkFile) {
+              alert('Please upload a watermark image.');
+              return;
+            }
+
+            const watermarkReader = new FileReader();
+            watermarkReader.onload = function (event) {
+              const watermarkImg = new Image();
+              watermarkImg.src = event.target.result;
+
+              watermarkImg.onload = function () {
+                const opacity = parseFloat(document.getElementById('image-opacity').value);
+                ctx.globalAlpha = opacity;
+
+                // Rotate the watermark image by 45 degrees
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.rotate((-45 * Math.PI) / 180);
+                ctx.drawImage(watermarkImg, -watermarkImg.width / 2, -watermarkImg.height / 2);
+                ctx.resetTransform(); // Reset transformations
+              };
+            };
+            watermarkReader.readAsDataURL(watermarkFile);
+          }
+
+          // Convert canvas to image and display
+          const watermarkedUrl = canvas.toDataURL('image/png');
+          outputImage.src = watermarkedUrl;
+          downloadLink.href = watermarkedUrl;
+          downloadLink.style.display = 'block';
+        };
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Merge multiple PDF files into one with our free online PDF merger tool. No backend required, fast, secure, and easy to use.">
+  <meta name="keywords" content="PDF merger, merge PDF, combine PDF, online PDF tool, free PDF tool">
+  <meta name="author" content="Your Name">
+  <title>Free Online PDF Merger Tool</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'ubuntu', 'sans-serif';
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+    }
+    header{
+      background-color: #b2a5ff;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 2px solid #b2a5ff;
+    }
+    .file-input {
+      margin-bottom: 20px;
+    }
+
+    .file-input label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    .file-input input[type="file"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      background: #fff;
+      cursor: pointer;
+    }
+    .add-file-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 10px;
+      background-color: #b2a5ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .add-file-button svg {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+      fill: #fff;
+    }
+    main{
+      padding: 20px;
+      max-width: 800px;
+      margin: 0;
+    }
+
+    .merge-button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #b2a5ff;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    .ads {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .ads iframe {
+      display: inline-block;
+      margin: 10px 0;
+    }
+
+    
+    ul li {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    ul a{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: black;
+      margin: 10px;
+    }
+    .logo i{
+      font-size: 35px;
+      color:rebeccapurple;
+    }
+    a i{
+      color:#b2a5ff;
+    }
+    a p:hover {
+      color: blueviolet;
+    }
+    @media (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .merge-button {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PDF Merger Tool</h1>
+    <p>Merge different PDF files to a single PDF file with easy and secure service</p>
+  </header>
+  <main>
+    <div class="container">
+      <!-- File Input Container -->
+      <div id="fileInputs">
+        <div class="file-input">
+          <label for="pdfInput1">Select PDF file:</label>
+          <input type="file" id="pdfInput1" accept="application/pdf">
+        </div>
+      </div>
+      <!-- Add File Button -->
+      <button class="add-file-button" onclick="addFileInput()">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M19 11h-6V5h-2v6H5v2h6v6h2v-6h6z"/>
+        </svg>
+        Add Another PDF
+      </button>
+      <!-- Merge Button -->
+      <button class="merge-button" onclick="mergePDFs()">Merge PDFs</button>
+    </div>
+    <div class="ads">
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_SENSE_ID"
+        crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-YOUR_AD_SENSE_ID"
+        data-ad-slot="0987654321"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main><hr>
+  
+  <footer>
+    <ul>
+      <li class="logo">
+          <i class="fas fa-tools" aria-hidden="true"></i> 
+          <h1>ToolVault</h1>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-toolbox"></i>
+          <p>All Tools</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-address-card"></i>
+          <p>About</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-lock"></i>
+          <p>Privacy Policy</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-list-check"></i>
+        <p>Terms & Condition</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-envelope"></i>
+          <p>Contact Us</p>
+        </a>
+      </li>
+      <li>
+        <p>&copy; 2025 ToolVault. All rights reserved.</p>
+      </li>
+    </ul>
+  </footer>
+
+  <script>
+    let fileInputCount = 1;
+
+    // Function to add a new file input field
+    function addFileInput() {
+      fileInputCount++;
+      const fileInputsContainer = document.getElementById('fileInputs');
+      const newFileInput = document.createElement('div');
+      newFileInput.classList.add('file-input');
+      newFileInput.innerHTML = `
+        <label for="pdfInput${fileInputCount}">Select PDF file:</label>
+        <input type="file" id="pdfInput${fileInputCount}" accept="application/pdf">
+      `;
+      fileInputsContainer.appendChild(newFileInput);
+    }
+
+    // Function to merge PDFs
+    async function mergePDFs() {
+      const fileInputs = document.querySelectorAll('input[type="file"]');
+      const files = Array.from(fileInputs).map(input => input.files[0]).filter(file => file);
+
+      if (files.length < 2) {
+        alert("Please select at least 2 PDF files to merge.");
+        return;
+      }
+
+      const { PDFDocument } = PDFLib;
+
+      // Create a new PDF document
+      const mergedPdf = await PDFDocument.create();
+
+      for (let file of files) {
+        const arrayBuffer = await file.arrayBuffer();
+        const pdfDoc = await PDFDocument.load(arrayBuffer);
+        const pages = await mergedPdf.copyPages(pdfDoc, pdfDoc.getPageIndices());
+        pages.forEach(page => mergedPdf.addPage(page));
+      }
+
+      // Save the merged PDF
+      const mergedPdfBytes = await mergedPdf.save();
+      const blob = new Blob([mergedPdfBytes], { type: 'application/pdf' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'merged.pdf';
+      link.click();
+    }
+  </script>
+</body>
+</html>

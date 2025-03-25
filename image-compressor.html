@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Free online image compressor tool to optimize and compress images for better performance.">
+  <meta name="keywords" content="image compressor, compress images, optimize images, free image tool">
+  <meta name="author" content="Your Name">
+  <title>Image Compressor Tool</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Ubuntu', 'sans-serif';
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      background-color:#b2a5ff;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    .ad-space {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .compressor-tool {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border: 2px solid #b2a5ff;
+    }
+
+    input[type="file"], input[type="number"], select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #b2a5ff;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 20px;
+    }
+    .output {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    #compressed-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    #download-link {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #b2a5ff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 20px;
+    }
+    ul li {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+    ul a{
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: black;
+    }
+    .logo i{
+      font-size: 35px;
+      color:rebeccapurple;
+    }
+    a i{
+      color:#b2a5ff;
+    }
+    a p:hover {
+      color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Image Compressor Tool</h1>
+    <p>Compress and optimize your images for better performance.</p>
+  </header>
+
+  <main>
+    <section class="compressor-tool">
+      <input type="file" id="image-input" accept="image/*">
+      <label for="target-size">Target Size (KB or MB):</label>
+      <input type="number" id="target-size" placeholder="Enter target size" min="1" step="0.1">
+      <select id="size-unit">
+        <option value="KB">KB</option>
+        <option value="MB">MB</option>
+      </select>
+      <button id="compress-btn">Compress Image</button>
+      <div class="output">
+        <img id="compressed-image" alt="Compressed Image">
+        <a id="download-link" download="compressed-image.jpg">Download Compressed Image</a>
+      </div>
+    </section>
+    <!-- Ad Space 2 -->
+    <div class="ad-space">
+      <!-- Replace with your Google AdSense Ad Unit ID -->
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_AD_UNIT_ID" crossorigin="anonymous"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-YOUR_AD_UNIT_ID"
+           data-ad-slot="0987654321"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+  </main><hr>
+  <footer>
+    <ul>
+      <li class="logo">
+          <i class="fas fa-tools" aria-hidden="true"></i> 
+          <h1>ToolVault</h1>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-toolbox"></i>
+          <p>All Tools</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-address-card"></i>
+          <p>About</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-lock"></i>
+          <p>Privacy Policy</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-list-check"></i>
+        <p>Terms & Condition</p>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa-solid fa-envelope"></i>
+          <p>Contact Us</p>
+        </a>
+      </li>
+      <li>
+        <p>&copy; 2025 ToolVault. All rights reserved.</p>
+      </li>
+    </ul>
+    
+  </footer>
+
+  <script>
+    document.getElementById('compress-btn').addEventListener('click', function () {
+      const fileInput = document.getElementById('image-input');
+      const targetSize = parseFloat(document.getElementById('target-size').value);
+      const sizeUnit = document.getElementById('size-unit').value;
+      const outputImage = document.getElementById('compressed-image');
+      const downloadLink = document.getElementById('download-link');
+
+      if (fileInput.files.length === 0 || isNaN(targetSize) || targetSize <= 0) {
+        alert('Please select an image and enter a valid target size.');
+        return;
+      }
+
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const img = new Image();
+        img.src = event.target.result;
+
+        img.onload = function () {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          // Set canvas dimensions
+          canvas.width = img.width;
+          canvas.height = img.height;
+
+          // Draw image on canvas
+          ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+          // Convert target size to bytes
+          const targetSizeBytes = sizeUnit === 'KB' ? targetSize * 1024 : targetSize * 1024 * 1024;
+
+          // Compress image to meet target size
+          let quality = 1.0;
+          let compressedBlob;
+
+          function compress() {
+            canvas.toBlob(
+              function (blob) {
+                if (blob.size <= targetSizeBytes || quality <= 0.1) {
+                  compressedBlob = blob;
+                  const compressedUrl = URL.createObjectURL(compressedBlob);
+                  outputImage.src = compressedUrl;
+                  downloadLink.href = compressedUrl;
+                  downloadLink.style.display = 'block';
+                } else {
+                  quality -= 0.05; // Reduce quality by 5% each iteration
+                  compress();
+                }
+              },
+              'image/jpeg',
+              quality
+            );
+          }
+
+          compress();
+        };
+      };
+
+      reader.readAsDataURL(file);
+    });
+  </script>
+</body>
+</html>

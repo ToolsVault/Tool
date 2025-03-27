@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "routes": [
+    {
+      "src": "/(.*\\.html)",
+      "dest": "/$1",
+      "headers": { "Content-Type": "text/html" }
+    },
+    {
+      "src": "/(.*\\.css)",
+      "headers": { "Content-Type": "text/css" }
+    },
+    {
+      "src": "/(.*\\.js)",
+      "headers": { "Content-Type": "application/javascript" }
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    }
+  ]
+}
